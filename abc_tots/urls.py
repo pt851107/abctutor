@@ -24,9 +24,10 @@ urlpatterns = [
     path('lessons/', include('lessons.urls')),
     path('activities/', include('activities.urls')),
     path('daycare/', include('daycare.urls')),
+    path('infantcare/', include('infantcare.urls')),
     path('teachers/', include('teachers.urls')),
     path('gallerys/', include('gallerys.urls')),
-    path('shopping_cart/', include('shopping_cart.urls',namespace='shopping_cart')),
-    path('shopping_cart/', include('shopping_cart.urls',namespace='cart_detail')),
+    path('shopping_cart/', include('shopping_cart.urls', namespace='shopping_cart')),
+    path('shopping_cart/', include('shopping_cart.urls', namespace='cart_detail')),
     path('admin/', admin.site.urls)
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
