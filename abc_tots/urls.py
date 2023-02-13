@@ -19,7 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', include('pages.urls')),
+    path('accounts/', include('accounts.urls')),
     path('summercamp/', include('summercamp.urls')),
     path('lessons/', include('lessons.urls')),
     path('activities/', include('activities.urls')),
@@ -29,5 +29,6 @@ urlpatterns = [
     path('gallerys/', include('gallerys.urls')),
     path('shopping_cart/', include('shopping_cart.urls', namespace='shopping_cart')),
     path('shopping_cart/', include('shopping_cart.urls', namespace='cart_detail')),
-    path('admin/', admin.site.urls)
+    path('admin/', admin.site.urls),
+    path('', include('pages.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
