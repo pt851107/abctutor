@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- page title -->
+      <title>ABC Tots{% block title %} {% endblock %}</title>
+      <!-- Font files -->
+      <link href="{% static 'css/all.css' %}" rel="stylesheet">
+      <link href="{% static 'fonts/fontawesome/fontawesome-all.min.css' %}" rel="stylesheet" type="text/css" />
+      <!-- Fav icons -->
+      <link rel="apple-touch-icon" sizes="57x57" href="{% static 'apple-icon-57x57.png'%}"/>
+      <link rel="apple-touch-icon" sizes="72x72" href="{% static 'apple-icon-72x72.png' %}">
+      <link rel="apple-touch-icon" sizes="114x114" href="{% static 'apple-icon-114x114.png' %}">
+      <link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+      <!-- Bootstrap core CSS -->
+      <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+      <!-- style CSS -->
+      <link href="{% static 'css/style.css' %}" rel="stylesheet">
+      <!-- plugins CSS -->
+      <link href="{% static 'css/plugins.css' %}" rel="stylesheet">
+      <!-- Colors CSS -->
+      <link href="{% static 'styles/maincolors.css' %}" rel="stylesheet">
+      <!-- LayerSlider CSS -->
+      <link rel="stylesheet" href="{% static 'vendor/layerslider/css/layerslider.css' %}">
+   </head>
+   <body>
+        {% include 'partials/_navbar.html' %}   
+        {% block content %} {% endblock %} 
+        {% include 'partials/_footer.html' %} 
+        <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+        <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+        <!-- Custom Js -->
+        <script src="{% static 'js/custom.js' %}"></script>
+        <script src="{% static 'js/plugins.js' %}"></script>
+        <!-- Prefix free -->
+        <script src="{% static 'js/prefixfree.min.js'%}"></script>
+        <!-- number counter script -->
+        <script src="{% static 'js/counter.js' %}"></script>
+        <!-- maps -->
+        <script src="{% static 'js/map.js' %}"></script>
+        <!-- GreenSock -->
+        <script src="{% static 'vendor/layerslider/js/greensock.js' %}"></script>
+        <!-- LayerSlider script files -->
+        <script src="{% static 'vendor/layerslider/js/layerslider.transitions.js' %}"></script>
+        <script src="{% static 'vendor/layerslider/js/layerslider.kreaturamedia.jquery.js' %}"></script>
+        <script src="{% static 'vendor/layerslider/js/layerslider.load.js' %}"></script>
+    </body>
+</html>

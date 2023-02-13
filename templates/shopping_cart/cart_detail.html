@@ -1,0 +1,192 @@
+{% extends 'base.html' %} 
+{% load static %}  
+{% block title %}{% endblock %}
+
+{% block content %}
+
+<!-- page wrapper starts -->
+<div id="page-wrapper">
+<!-- Jumbotron -->
+<div class="jumbotron jumbotron-fluid">
+    <div class="container" >
+        <!-- jumbo-heading -->
+        <div class="jumbo-heading" data-aos="fade-down">
+            <h1>Cart</h1>
+            <!-- Breadcrumbs -->
+            <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Cart</li>
+            </ol>
+            </nav>
+            <!-- /breadcrumb -->
+        </div>
+        <!-- /jumbo-heading -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /jumbotron -->
+<!-- ==== Page Content ==== -->
+<div class="page pb-0">
+    <div class="container block-padding">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1 res-margin notepad">
+                <table class="table">
+                    <thead class="thead-danger">
+                        <tr>
+                            <th scope="col" class="col-md-8"></th>
+                            <th scope="col" class="col-md-8">Product</th>
+                            <th scope="col" class="col-md-4">Quantity</th>
+                            <th scope="col" class="col-md-6">Remove</th>
+                            <th scope="col" class="col-md-6">Unit Fees</th>
+                            <th scope="col" class="col-md-6">Fees</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in shopping_cart %}
+                    {% if camp=item.camp %}
+                    <tr>
+                        <td>
+                            <a href="{{ camp.get_absolute_url }}">
+                                <img src="{{camp.photo_main.url}}">
+                            </a>
+                        </td>
+                        <td class="text-left">{{camp.name}}<br>{{camp.camp_date}}</td>
+                        <td class="text-center">
+                            <form action="{% url 'cart_detail:cart_add' camp.id %}" method="post">
+                                {{ item.update_quantity_form.quantity }}
+                                {{ item.update_quantity_form.override }}
+                                <input type="submit" value="Update">
+                                {% csrf_token %}
+                            </form>
+                        </td>
+                        <td>
+                            <form class="text-center" action="{% url 'cart_detail:cart_remove' camp.id %}" method="post">
+                                <input type="submit" value="Remove">
+                                {% csrf_token %}
+                            </form>
+                        </td>
+                        <td class="num" class="text-center">${{item.fees}}</td>
+                        <td class="num" class="text-center">${{item.total_fees}}</td>
+                    </tr>
+                    {% elif lesson=item.lesson %}
+                    <tr>
+                        <td>
+                            <a href="{{ lesson.get_absolute_url }}">
+                                <img src="{{lesson.photo_main.url}}">
+                            </a>
+                        </td>
+                        <td class="text-left">{{lesson.name}}<br>{{lessonp_date}}</td>
+                        <td class="text-center">
+                            <form action="{% url 'cart_detail:cart_add' lesson.id %}" method="post">
+                                {{ item.update_quantity_form.quantity }}
+                                {{ item.update_quantity_form.override }}
+                                <input type="submit" value="Update">
+                                {% csrf_token %}
+                            </form>
+                        </td>
+                        <td>
+                            <form class="text-center" action="{% url 'cart_detail:cart_remove' lesson.id %}" method="post">
+                                <input type="submit" value="Remove">
+                                {% csrf_token %}
+                            </form>
+                        </td>
+                        <td class="num" class="text-center">${{item.fees}}</td>
+                        <td class="num" class="text-center">${{item.total_fees}}</td>
+                    </tr>
+                    {% else activity = item.activity %}
+                    <tr>
+                        <td>
+                            <a href="{{ activity.get_absolute_url }}">
+                                <img src="{{activity.photo_main.url}}">
+                            </a>
+                        </td>
+                        <td class="text-left">{{activity.name}}<br>{{activity.activity_date}}</td>
+                        <td class="text-center">
+                            <form action="{% url 'cart_detail:cart_add' activity.id %}" method="post">
+                                {{ item.update_quantity_form.quantity }}
+                                {{ item.update_quantity_form.override }}
+                                <input type="submit" value="Update">
+                                {% csrf_token %}
+                            </form>
+                        </td>
+                        <td>
+                            <form class="text-center" action="{% url 'cart_detail:cart_remove' activity.id %}" method="post">
+                                <input type="submit" value="Remove">
+                                {% csrf_token %}
+                            </form>
+                        </td>
+                        <td class="num" class="text-center">${{item.fees}}</td>
+                        <td class="num" class="text-center">${{item.total_fees}}</td>
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+                    <br>    
+                    <tr class="table-info">
+                        <td class="col-md-8">Total</td>
+                        <td colspan="4"></td>
+                        <td class="num">${{shopping_cart.get_total_fees}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <p class="text-right">
+                    <a href="{% url "index" %}" class="btn btn-quaternary btn-sm mt-2 ml-1">Continue</a>
+                    <a href="#" class="btn btn-quaternary btn-sm mt-2 ml-1">Check Out</a>
+                </p>
+            </div>            
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+{% endblock %}
+
+<!-- contact-info-->
+
+<div class="col-lg-5 justify-content-center align-self-center text-lg-left text-sm-center text-xs-center">
+    <h2>Get in Touch</h2>
+    <span class="h7 mt-0">Contact us today for a quote</span>
+    <p class="mt-2">Etiam rhoncus leo a dolor placerat, nec elem entum ipsum conval Qui quaerat fugit quas veniam perferendis repudiandae sequi, dolore quisquam illum.</p>
+    <!-- contact icons-->
+    <ul class="list-unstyled mt-3 list-contact colored-icons">
+        <li><i class="fa fa-envelope margin-icon"></i><a href="mailto:email@abctots.com">email@abctots.com</a></li>
+        <li><i class="fa fa-phone margin-icon"></i>(123) 456-789</li>
+        <li><i class="fa fa-map-marker margin-icon"></i>Street Name 123 - New York</li>
+    </ul>
+    <!-- /list-->
+    </div>
+    <!-- /col-lg- -->
+            <div class="contact-info col-lg-6 offset-lg-1 res-margin notepad">
+            <h4>Send us a message</h4>
+            <!-- Form Starts -->
+            <div id="contact_form">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6">
+                        <label>Name<span class="required">*</span></label>
+                        <input type="text" name="name" class="form-control input-field" required=""> 
+                        </div>
+                        <div class="col-md-6">
+                        <label>Email Address <span class="required">*</span></label>
+                        <input type="email" name="email" class="form-control input-field" required=""> 
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                        <label>Subject</label>
+                        <input type="text" name="subject" class="form-control input-field"> 
+                        </div>
+                        <div class="col-md-12">
+                        <label>Message<span class="required">*</span></label>
+                        <textarea name="message" id="message" class="textarea-field form-control" rows="3"  required=""></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" id="submit_btn" value="Submit" class="btn btn-primary">Send message</button>
+                </div>
+                <!-- /form-group-->
+                <!-- Contact results -->
+                <div id="contact_results"></div>
+            </div>
+            <!-- /contact-form-->
+            </div>
+            <!-- /contact-info-->

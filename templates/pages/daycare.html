@@ -1,0 +1,121 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block content %}
+<!-- page wrapper starts -->
+  <div id="page-wrapper">
+         <!-- ==== Page Content ==== -->
+         <div class="page container">
+            <!-- row-->
+            <div class="row mb-5">
+               <div class="col-lg-5">
+                  <img src="img/about/pricing.jpg" alt="" class="img-fluid rounded d-block mx-auto">
+               </div>
+               <!-- /col-lg-->
+               <div class="col-lg-7 mt-3">
+                  <h2>Our Rates & Fees </h2>
+                  <p>
+                     Etiam vestibulum sit amet nulla vel ornare. Vestibulum vitae turpis ac sapien pharetra facilisis. Curabitur non libero justo.
+                     <!-- alert-->
+                  <div class="alert alert-warning mt-3" role="alert">
+                     <h6> Payment information</h6>
+                     <p>Curabitur et quam felis. Nulla rhoncus laoreet dolor, et vestibulum sem consectetur a. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tincidunt turpis ut sagittis tempor.
+                  </div>
+               </div>
+               <!-- /col-lg-->
+            </div>
+            <!-- /row-->
+            <!-- pricing tables -->
+            <div class="col-lg-12 mt-5">
+               <!-- row -->
+               {% if prices %}
+               <div class="row">
+                    {% for price in prices %}
+                  <!-- pricing table 1 -->
+                  <div class="col-lg-4 col-md-12">
+                     <div class="pricingTable">
+                        <div 
+                        {% if price.id == 1 %}
+                        class="pricingTable-header bg-primary"
+                        {% elif price.id == 2 %}
+                        class="pricingTable-header bg-secondary"
+                        {% else %}
+                        class="pricingTable-header bg-tertiary"
+                        {% endif %}
+                        >
+                        <h3 class="title">{{price.name}}</h3>
+                        </div>
+                        <!-- /pricingTable-header -->
+                        <div 
+                        {% if price.id == 1 %}
+                        class="pricingTable-header bg-primary"
+                        {% elif price.id == 2 %}
+                        class="pricingTable-header bg-secondary"
+                        {% else %}
+                        class="pricingTable-header bg-tertiary"
+                        {% endif %}
+                        >
+                           <div class="price-value">
+                              <span class="amount">${{price.price}}</span>
+                              <span class="month">{{price.discription}}</span>
+                           </div>
+                           <!-- /price-value -->
+                           <ul>
+                              <li>{{price.intro1}}</li>
+                              <li>{{price.intro2}}</li>
+                              <li>{{price.intro3}}</li>
+                              <li>{{price.intro4}}</li>
+                           </ul>
+                           <a href="#" class="btn">Sign Up</a>
+                        </div>
+                        <!-- /pricing content -->
+                     </div>
+                     <!-- /pricing-table -->
+                  </div>
+                  <!-- /col-md -->
+                  {% endfor %}
+                </div>
+                <!-- /row  -->
+                {% else %}
+                <p>no price value available, please enter information at administrative page</p>
+                {% endif %}
+            </div>
+            <!-- /col-lg-12 -->   <!-- row -->
+            <div class="col-lg-12 mt-5">
+               <h4>Administrative charges</h4>
+               <p>
+                  Etiam vestibulum sit amet nulla vel ornare. Vestibulum vitae turpis ac sapien pharetra facilisis. Curabitur non libero justo. Suspendisse at ultrices velit. Quisque aliquet quis nibh sed feugiat. Curabitur et quam felis. Nulla rhoncus laoreet dolor, et vestibulum sem consectetur a. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tincidunt turpis ut sagittis tempor.
+                  <!-- table -->
+               <table class="table table-striped">
+                  <thead>
+                     <tr>
+                        <th>Ages</th>
+                        <th>Fee Type</th>
+                        <th>Value</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>12months to 2 years</td>
+                        <td>Registration fee (one time only)</td>
+                        <td>$40</td>
+                     </tr>
+                     <tr>
+                        <td>2 years to 8 years</td>
+                        <td>Registration fee (one time only)</td>
+                        <td>$20</td>
+                     </tr>
+                     <tr>
+                        <td>8 years to 12 years</td>
+                        <td>Registration fee (one time only)</td>
+                        <td>$20</td>
+                     </tr>
+                  </tbody>
+               </table>
+               <!-- /table-->
+            </div>
+            <!-- /col-lg-12-->
+         </div>
+         <!-- /page -->
+        </div>
+    <!--/ page-wrapper -->
+{% endblock %}

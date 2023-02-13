@@ -1,0 +1,160 @@
+{% extends 'base.html' %} 
+{% load static %}     
+{% block content %}
+
+<div id="page-wrapper">
+    <!-- Jumbotron -->
+    <div class="jumbotron jumbotron-fluid">
+       <div class="container" >
+          <!-- jumbo-heading -->
+          <div class="jumbo-heading" data-aos="fade-down">
+             <h1>Camp Details</h1>
+             <!-- Breadcrumbs -->
+             <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                   <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+                   <li class="breadcrumb-item"><a href="{% url 'summercamp' %}">Summer Camp</a></li>
+                   <li class="breadcrumb-item active" aria-current="page">{{camp.name}}</li>
+                </ol>
+             </nav>
+             <!-- /breadcrumb -->
+          </div>
+          <!-- /jumbo-heading -->
+       </div>
+       <!-- /container -->
+    </div>
+    <!-- /jumbotron -->
+    <!-- ==== Page Content ==== -->
+      <div class="page">
+       <div class="container">
+          <div class="row">
+             <!-- page with sidebar starts -->
+             <div class="col-lg-9 page-with-sidebar">
+                <div class="col-md-12">
+                   <h2>{{camp.name}}</h2>
+                   <i class='fas fa-calendar-alt'> {{camp.camp_date}}</i>
+                   <br>
+                   <i class='fas fa-map-marker'> {{camp.location}}</i>
+                   <br>
+                   <p class="h7 mt-1">{{camp.short_description}}</p>
+                   <!-- Image -->
+                   <p>{{camp.long_description}}</p>
+                   <!-- row -->
+                   <div class="row">
+                      <div class="col-md-5">
+                         <div class="col-md-12 carousel-1item owl-carousel owl-theme "  data-aos="fade-in" >
+                            <img src="{{camp.photo_main.url}}" class="img-fluid rounded-circle" alt="">
+                            <img src="{{camp.photo_1.url}}" class="img-fluid rounded-circle" alt="">
+                            <img src="{{camp.photo_2.url}}" class="img-fluid rounded-circle" alt="">
+                         </div>
+                         <!-- /col-md- -->
+                      </div>
+                      <!-- /col-md -->
+                      <div class="col-md-7">
+                         <h4>Activities</h4>
+                         <!-- Image -->
+                         <ul class="custom pl-0">
+                           <li>{{camp.activities}}</li>
+                        </ul>
+                        <br>
+                        <i class='fas fa-dollar-sign' style='font-size:24px'> {{camp.fees}}</i> per child  
+                         <!-- Button -->	 
+                         <form action="{% url "shopping_cart:cart_add" camp.id %}" method="post">
+                           {{ cart_product_form }}
+                           {% csrf_token %}
+                           <input type="submit" class="btn btn-secondary float-auto mt-1" value="Book Now">
+                         </form>
+                      </div>
+                      <!-- /col-md -->
+                      <div class="col-md-12 mt-5">
+                         <h4>Frequently asked questions</h4>
+                         <div class="accordion mt-3">
+                            <!-- collapsible accordion 1 -->
+                            <div class="card">
+                               <div class="card-header">
+                                  <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                                  Payment details
+                                  </a>
+                               </div>
+                               <!-- /card-header -->
+                               <div id="collapseOne" class="collapse show" data-parent=".accordion">
+                                  <div class="card-body">
+                                     <p>{{camp.payment_details}}</p>
+                                  </div>
+                               </div>
+                            </div>
+                            <!-- /card -->
+                            <!-- collapsible accordion 2 -->
+                            <div class="card">
+                               <div class="card-header">
+                                  <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+                                  Enrollment Information
+                                  </a>
+                               </div>
+                               <div id="collapseTwo" class="collapse" data-parent=".accordion">
+                                  <div class="card-body">
+                                     <p>{{camp.enrollment_info}}</p>
+                                  </div>
+                               </div>
+                            </div>
+                            <!-- /card -->
+                            <!-- collapsible accordion 3 -->
+                            <div class="card">
+                               <div class="card-header">
+                                  <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+                                  Safety information
+                                  </a>
+                               </div>
+                               <div id="collapseThree" class="collapse" data-parent=".accordion">
+                                  <div class="card-body">
+                                     <p>{{camp.safety.info}}</p>
+                                  </div>
+                               </div>
+                            </div>
+                            <!-- /card -->
+                         </div>
+                         <!-- /accordion -->
+                      </div>
+                      <!-- /col-md-12-->
+                      <div class="col-md-12 mt-5">
+                         <h5>Terms & Conditions</h5>
+                         <!-- custom-list -->
+                         <p>
+                           {{camp.terms_and_conditions}}
+                         </p>
+                         <!-- /ul -->
+                      </div>
+                      <!-- /col-md -->
+                      <!-- custom link -->
+                      <a class="custom-link float-right mt-5" href="{% url 'summercamp' %}">Go back</a>
+                   </div>
+                   <!-- /row -->
+                </div>
+                <!-- /col-md-12 -->
+             </div>
+             <!-- /col-lg-9 -->
+             <!-- ==== Sidebar ==== -->
+             <div id="sidebar" class="col-lg-3 h-50 sticky-top">
+                <!--widget area-->
+                <div class="widget-area notepad">
+                   <h5 class="sidebar-header">All Services</h5>
+                   <div class="list-group">
+                      <a href="{% url 'daycare' %}" class="list-group-item list-group-item-action active">
+                      Daycare
+                      </a>
+                      <a href="{% url 'infantcare' %}" class="list-group-item list-group-item-action">Infant Care</a>
+                      <a href="{% url 'summercamp' %}" class="list-group-item list-group-item-action">Summer Camp</a>
+                      <a href="{% url 'lessons' %}" class="list-group-item list-group-item-action">Lessons</a>
+                      <a href="{% url 'activities' %}" class="list-group-item list-group-item-action">Activities</a>                   </div>
+                   <!-- /list-group -->
+                </div>
+                <!-- /widget-area -->
+             </div>
+             <!-- /sidebar -->
+          </div>
+          <!-- /row-->
+       </div>
+       <!-- /container-->
+      </div> 
+</div> 
+{% endblock %} 

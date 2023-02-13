@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- page wrapper starts -->
+      <div id="page-wrapper">
+         <!-- Jumbotron -->
+         <div class="jumbotron jumbotron-fluid">
+            <div class="container" >
+               <!-- jumbo-heading -->
+               <div class="jumbo-heading" data-aos="fade-down">
+                  <h1>Our Team</h1>
+                  <!-- Breadcrumbs -->
+                  <nav aria-label="breadcrumb">
+                     <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Our Team</li>
+                     </ol>
+                  </nav>
+                  <!-- /breadcrumb -->
+               </div>
+               <!-- /jumbo-heading -->
+            </div>
+            <!-- /container -->
+         </div>
+         <!-- /jumbotron -->
+         <!-- ==== Page Content ==== -->
+         <div class="page">
+            <div class="container block-padding">
+               <!-- Team style 1 -->
+               <h3 class="text-center">Team Style 1</h3>
+               <!-- team carousel -->  
+               {% if teachers %}
+               <div class="carousel-4items owl-carousel owl-theme mt-5">
+               {% for teacher in teachers %}
+                  <!-- Team member 1 -->
+                  <div class="col-md-12 team-style1 notepad">
+                     <div class="team_img">
+                        <a href="{% url 'teacher' teacher.id %}">
+                        <img src="{{teacher.photo.url}}" class="img-fluid" alt="">
+                        </a>
+                        <!-- social icons -->
+                        <ul class="social">
+                           <li><a href="{{teacher.email}}"><i class="fa fa-envelope"></i></a></li>
+                           <li><a href="{{teacher.facebook}}"><i class="fab fa-facebook"></i></a></li>
+                           <li><a href="{{teacher.twitter}}"><i class="fab fa-twitter"></i></a></li>
+                           <li><a href="{{teacher.linkedin}}"><i class="fab fa-linkedin"></i></a></li>
+                        </ul>
+                     </div>
+                     <!-- /team_img -->
+                     <div class="team-content">
+                        <a href="{% url 'teacher' teacher.id %}">
+                           <h5 class="title">{{teacher.name}}</h5>
+                        </a>
+                        <span class="post">{{teacher.profession}}</span>
+                        <p>{{teacher.description}}</p>
+                     </div>
+                     <!-- /team-content -->
+                  </div>
+                  <!-- /team-style1 -->
+                  {% endfor %}
+               </div>
+               {% else %}
+               <p>no teacher information available now</p>
+               {% endif %}
+               <!-- /owl-team--> 
+            </div>
+            <!-- /container-->
+
+
+            <div class="bg-light block-padding">
+               <!-- Team style 2 -->
+               <h3 class="text-center">Team Style 2</h3>
+               <div class="container mt-5">
+                  <!-- team carousel -->  
+                  {% if teachers %}
+                  <div class="col-md-12 carousel-2items owl-carousel owl-theme">
+                    {% for teacher in teachers %}
+                     <!-- Team member 1 -->
+                     <div class="team-style2 col-lg-12 d-md-flex justify-content-between">
+                        <div class="img-box my-auto">
+                           <!-- Team image -->
+                           <a href="{% url 'teacher' teacher.id %}">
+                           <img src="{{teacher.photo.url}}" class="rounded-circle img-fluid"
+                              alt="">
+                           </a>
+                        </div>
+                        <div class="mx-4">
+                           <!-- Team info -->
+                           <a href="{% url 'teacher' teacher.id %}">
+                              <h5 class="mb-2">{{teacher.name}}</h5>
+                           </a>
+                           <h6 class="mb-3">{{teacher.profession}}</h6>
+                           <p>{{teacher.description}}
+                           </p>
+                        </div>
+                        <!-- /mx-4 -->
+                        <!-- Team social icons -->
+                        <ul class="social-icons bg-tertiary text-center">
+                           <li> <a href="{{teacher.facebook}}"><i class="fab fa-facebook"></i></a></li>
+                           <li> <a href="{{teacher.twitter}}"><i class="fab fa-twitter"></i></a></li>
+                           <li> <a href="{{teacher.linkedin}}"><i class="fab fa-linkedin"></i></a></li>
+                        </ul>
+                     </div>
+                     <!-- /Team member 1 -->
+                     {% endfor%}
+                     {% else %}
+                     <p>no teacher information available now</p>
+                     {% endif %}
+                    </div>
+                  <!--/col-md-12 -->      
+               </div>
+               <!-- /container -->   
+            </div>
+            <!-- /bg-light-custom -->
+            <div class="container block-padding">
+               <!-- Team style 3 -->
+               <h3 class="text-center">Team Style 3</h3>
+               <!-- team carousel --> 
+               {% if teachers %} 
+               <div class="carousel-3items owl-carousel owl-theme mt-5 col-md-12">
+                  {% for teacher in teachers %}
+                  <!-- Team member 1 -->
+                  <div class="col-lg-12 team-style3 bg-secondary pattern2">
+                     <!-- image -->
+                     <a href="{% url 'teacher' teacher.id %}">
+                     <img src="{{teacher.photo.url}}" class="img-fluid rounded" alt="" />
+                     </a>
+                     <!-- caption -->
+                     <div class="team-caption">
+                        <a href="{% url 'teacher' teacher.id %}">
+                           <h4>{{teacher.name}}</h4>
+                        </a>
+                        <h6>{{teacher.profession}}</h6>
+                        <p>
+                           {{teacher.description}}
+                        </p>
+                     </div>
+                     <!-- social icons -->
+                     <div class="icons bg-primary">
+                        <a href="{{teacher.email}}"><i class="fa fa-envelope"></i></a>
+                        <a href="{{teacher.facebook}}"><i class="fab fa-facebook-f"></i></a>
+                        <a href="{{teacher.instagram}}"><i class="fab fa-instagram"></i></a>
+                     </div>
+                  </div>
+                  {% endfor %}
+                  <!-- /team-style3 -->
+               </div>
+                {% else %}
+                <p>no teacher information available now</p>
+                {% endif %}
+               <!-- /owl-carousel -->   
+            </div>
+            <!-- /container -->
+         </div>
+         <!-- /page -->
+      </div>
+      <!--/ page-wrapper -->
+      
+{% endblock %}

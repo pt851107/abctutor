@@ -1,0 +1,102 @@
+{% load static %}
+<nav id="main-nav" class="navbar-expand-xl fixed-top">
+    <div class="row">
+       <!-- Start Top Bar -->
+       <div class="container-fluid top-bar" >
+        <div class="container">
+           <div class="row">
+              <div class="col-md-12">
+                 <!-- Start Contact Info -->
+                 <ul class="contact-details float-left">
+                    <li><i class="fa fa-map-marker"></i>Street name 123 - New York</li>
+                    <li><i class="fa fa-envelope"></i><a href="mailto:email@site.com">abc@abctots.com</a></li>
+                    <li><i class="fa fa-phone"></i>(123) 456-789</li>
+                 </ul>
+                 <!-- End Contact Info -->
+                 <!-- Start Social Links -->
+                 <ul class="social-list float-left list-inline">
+                    <li class="list-inline-item"><a title="Facebook" href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li class="list-inline-item"><a title="Twitter" href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li class="list-inline-item"><a title="Instagram" href="#"><i class="fab fa-instagram"></i></a></li>
+                 </ul>
+                 <!-- /End Social Links -->
+                 <!-- Cart & Login -->
+                 <ul class="cart float-right cart-inline">
+                      <li class="cart-inline-item fas fa-shopping-cart" style="color:yellow">
+                        {% with total_items=shopping_cart|length %}
+                        {% if total_items > 0 %}
+                        Your Cart:   
+                        <a href="{% url 'shopping_cart:cart_detail' %}">
+                        {{total_items}} item{{total_items|pluralize}}
+                        </a>   
+                        {% else %}
+                        <span style="color:white">Your Cart is Empty</span>
+                        {% endif %}
+                        {% endwith %}
+                      </li>
+                      <li class="cart-inline-item fas fa-user" style="color:yellow"><a href="#"> Log In</a></li>
+                 </ul>
+                 <!-- /End Cart & Login -->
+              </div>
+              <!-- col-md-12 -->
+           </div>
+           <!-- /row -->
+        </div>
+        <!-- /container -->
+     </div>
+     <!-- End Top bar -->
+       <!-- Navbar Starts -->
+       <div class="navbar container-fluid">
+          <div class="container ">
+             <!-- logo -->
+             <a class="nav-brand" href="{% url 'index' %}">
+             <img src="{% static 'img/logo.png' %}" alt="" class="img-fluid">
+             </a>
+             <!-- Navbar toggler -->
+             <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="true" aria-label="Toggle navigation">
+                <span class="navbar-toggle-icon">
+                    <i class="fas fa-bars"></i>
+                </span>
+             </button>
+             <div class="collapse navbar-collapse collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                   <!-- menu item -->
+                   <li class="nav-item">
+                      <a class="nav-link" href="{% url 'daycare' %}">Daycare
+                      </a>
+                   </li>
+                   <!-- menu item -->
+                   <li class="nav-item">
+                     <a class="nav-link" href="{% url 'infantcare' %}">Infant Care
+                     </a>
+                  </li>
+                   <!-- menu item -->
+                   <li class="nav-item">
+                     <a class="nav-link" href="{% url 'summercamp' %}">Summer Camp
+                     </a>
+                  </li>
+                   <!-- menu item -->
+                   <li class="nav-item">
+                     <a class="nav-link" href="{% url 'lessons' %}">Lessons</a>
+                  </li>
+                   <!-- menu item -->
+                   <li class="nav-item">
+                     <a class="nav-link" href="{% url 'activities' %}">Activities
+                     </a>
+                  </li>
+                   <!-- menu item -->
+                   <li class="nav-item">
+                     <a class="nav-link" href="{% url 'contact' %}">Contact Us
+                     </a>
+                  </li>
+                </ul>
+                <!--/ul -->
+             </div>
+             <!--collapse -->
+          </div>
+          <!-- /container -->
+       </div>
+       <!-- /navbar -->
+    </div>
+    <!--/row -->
+ </nav> 
