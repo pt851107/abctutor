@@ -30,6 +30,6 @@ class Daycare(models.Model):
     def __str__(self):
         return self.name
 
-    def get_absolute_url(self):
+    # def get_absolute_url(self):
         return reverse('daycare:daycare_detail',
                        args=[self.id, self.slug])
