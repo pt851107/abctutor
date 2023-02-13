@@ -12,6 +12,6 @@ def index(request):
 
 
 def daycare_detail(request, id, slug):
-    daycare = get_object_or_404(Daycare, id=id, slug=slug, available=True)
+    daycare_case = get_object_or_404(Daycare, id=id, slug=slug, available=True)
     cart_product_form = CartAddProductForm()
-    return render(request, 'daycare/daycare_detail.html', {'daycare': daycare, 'cart_product_form': cart_product_form})
+    return render(request, 'daycare/daycare_detail.html', {'daycare_case': daycare_case, 'cart_product_form': cart_product_form})

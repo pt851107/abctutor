@@ -24,12 +24,6 @@ def index(request):
     }
     return render(request, 'pages/index.html', context)
 
-def daycare(request):
-    return render(request, 'pages/daycare.html')
-
-def infantcare(request):
-    return render(request, 'pages/infantcare.html')
-
 
 def summercamp(request):
     summercamp = Camp.objects.all()
@@ -43,14 +37,15 @@ def lessons(request):
     lessons = Lesson.objects.all()
     context = {
         'lessons': lessons
-    }    
+    }
     return render(request, 'lessons/lessons.html', context)
+
 
 def activities(request):
     activities = Activity.objects.all()
     context = {
         'activities': activities
-    }    
+    }
     return render(request, 'activities/activities.html', context)
 
 
@@ -60,3 +55,11 @@ def contact(request):
 
 def teachers(request):
     return render(request, 'pages/teachers.html')
+
+
+def daycare(request):
+    return render(request, 'daycare/daycare.html')
+
+
+def infantcare(request):
+    return render(request, 'infantcare/infantcare.html')

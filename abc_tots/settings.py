@@ -31,7 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'pages.apps.PagesConfig',
     'summercamp.apps.SummercampConfig',
     'lessons.apps.LessonsConfig',
     'activities.apps.ActivitiesConfig',
@@ -39,6 +38,8 @@ INSTALLED_APPS = [
     'gallerys.apps.GallerysConfig',
     'shopping_cart.apps.ShoppingCartConfig',
     'daycare.apps.DaycareConfig',
+    'infantcare.apps.InfantcareConfig',
+    'pages.apps.PagesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
