@@ -5,10 +5,8 @@ from .models import Daycare
 
 
 class DaycareAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name', 'slug', 'location',
-                    'fees', 'available', 'created', 'updated']
-    list_filter = ['available', 'created', 'updated']
-    prepopulated_fields = {'slug': ('name',)}
+    list_display = ['id', 'name',]
+    list_filter = ['id', 'name']
 
 
 admin.site.register(Daycare, DaycareAdmin)
