@@ -4,9 +4,9 @@ from .models import Daycare
 # Register your models here.
 
 
-class DaycareAdmin(admin.ModelAdmin):
+class DaycaresAdmin(admin.ModelAdmin):
     list_display = ['id', 'name',]
     list_filter = ['id', 'name']
 
 
-admin.site.register(Daycare, DaycareAdmin)
+admin.site.register(Daycare, DaycaresAdmin)

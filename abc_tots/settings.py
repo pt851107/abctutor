@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'teachers.apps.TeachersConfig',
     'gallerys.apps.GallerysConfig',
     'shopping_cart.apps.ShoppingCartConfig',
-    'daycare.apps.DaycareConfig',
+    'daycares.apps.DaycaresConfig',
     'infantcare.apps.InfantcareConfig',
     'pages.apps.PagesConfig',
     'django.contrib.admin',
