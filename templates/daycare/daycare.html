@@ -30,7 +30,7 @@
             <!-- row-->
             <div class="row mb-5">
                <div class="col-lg-5">
-                  <img src="img/about/pricing.jpg" alt="" class="img-fluid rounded d-block mx-auto">
+                  <img src="{% static 'img/pricing.jpg' %}" alt="" class="img-fluid rounded d-block mx-auto">
                </div>
                <!-- /col-lg-->
                <div class="col-lg-7 mt-3">
@@ -49,9 +49,9 @@
             <!-- pricing tables -->
             <div class="col-lg-12 mt-5">
                <!-- row -->
-               {% if prices %}
+               {% if daycares %}
                <div class="row">
-                    {% for price in prices %}
+                    {% for price in daycares %}
                   <!-- pricing table 1 -->
                   <div class="col-lg-4 col-md-12">
                      <div class="pricingTable">
