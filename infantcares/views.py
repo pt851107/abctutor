@@ -3,6 +3,6 @@ from .models import Infantcare
 # Create your views here.
 
 def index(request):
-    infantcare = Infantcare.objects.all()
-    context = {'infantcare': infantcare}
+    infantcares = Infantcare.objects.all()
+    context = {'infantcares': infantcares}
     return render(request, 'infantcare/infantcare.html', context)
