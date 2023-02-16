@@ -2,8 +2,6 @@ from django.shortcuts import render, get_object_or_404
 from .models import Teacher
 
 # Create your views here.
-
-
 def index(request):
     teachers = Teacher.objects.order_by('name')
     context = {'teachers': teachers}

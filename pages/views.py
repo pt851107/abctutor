@@ -8,9 +8,6 @@ from activities.models import Activity
 
 # Create your views here.
 
-
-
-
 def index(request):
     teachers = Teacher.objects.all()
     gallerys = Gallery.objects.all()

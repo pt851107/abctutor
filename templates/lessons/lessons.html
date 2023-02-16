@@ -52,7 +52,7 @@
                               {{lesson.short_description}}
                            </p>
                            <!-- Button -->	 
-                           <a href={% url 'contact' %} class="btn btn-quaternary  btn-sm mt-2 ml-1">Contact Us</a>
+                           <a href={% url 'lesson_detail' lesson.id %} class="btn btn-quaternary  btn-sm mt-2 ml-1">More Details</a>
                         </div>
                      </div>
                      {% endfor %}
