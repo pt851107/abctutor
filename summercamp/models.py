@@ -1,11 +1,9 @@
 from django.db import models
-from django.urls import reverse
 # Create your models here.
 
 
 class Camp(models.Model):
     name = models.CharField(max_length=200, db_index=True)
-    slug = models.SlugField(max_length=200, db_index=True)
     camp_date = models.CharField(max_length=200)
     location = models.CharField(max_length=200)
     short_description = models.TextField(blank=True)
@@ -23,13 +21,5 @@ class Camp(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
-    class Meta:
-        ordering = ('name', )
-        index_together = (('id', 'slug'))
-
     def __str__(self):
         return self.name
-
-    def get_absolute_url(self):
-        return reverse('summercamp:camp_detail',
-                       args=[self.id, self.slug])

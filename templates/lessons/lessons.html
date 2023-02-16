@@ -41,20 +41,18 @@
                      <div class="serviceBox2">
                         <!-- service icon -->
                         <div class="service-icon">
-                           <a href="{{lesson.get_absolute_url}}">
                            <img src="{{lesson.photo_main.url}}" alt="" class="blob img-fluid">
                            </a>
                         </div>
                         <!-- service content -->
                         <div class="service-content">
-                           <a href="{{lesson.get_absolute_url}}">
                               <h4 class="service-head">{{lesson.name}}</h4>
                            </a>
                            <p>
                               {{lesson.short_description}}
                            </p>
                            <!-- Button -->	 
-                           <a href={{lesson.get_absolute_url}} class="btn btn-quaternary  btn-sm mt-2 ml-1">Read More</a>
+                           <a href={% url 'contact' %} class="btn btn-quaternary  btn-sm mt-2 ml-1">Contact Us</a>
                         </div>
                      </div>
                      {% endfor %}
