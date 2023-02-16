@@ -9,7 +9,7 @@
                  <!-- Start Contact Info -->
                  <ul class="contact-details float-left">
                     <li><i class="fa fa-map-marker"></i>Street name 123 - New York</li>
-                    <li><i class="fa fa-envelope"></i><a href="mailto:email@site.com">abc@abctots.com</a></li>
+                    <li><i class="fa fa-envelope"></i><a href="mailto:email@site.com">dipa@dipa.com</a></li>
                     <li><i class="fa fa-phone"></i>(123) 456-789</li>
                  </ul>
                  <!-- End Contact Info -->
@@ -22,18 +22,6 @@
                  <!-- /End Social Links -->
                  <!-- Cart & Login -->
                  <ul class="cart float-right cart-inline">
-                      <li class="cart-inline-item fas fa-shopping-cart" style="color:yellow">
-                        {% with total_items=shopping_cart|length %}
-                        {% if total_items > 0 %}
-                        Your Cart:   
-                        <a href="{% url 'shopping_cart:cart_detail' %}">
-                        {{total_items}} item{{total_items|pluralize}}
-                        </a>   
-                        {% else %}
-                        <span style="color:white">Your Cart is Empty</span>
-                        {% endif %}
-                        {% endwith %}
-                      </li>
                       <li class="cart-inline-item fas fa-user" style="color:yellow"><a href="{% url 'login' %}"> Log In</a></li>
                  </ul>
                  <!-- /End Cart & Login -->

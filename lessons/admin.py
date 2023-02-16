@@ -3,7 +3,7 @@ from .models import Lesson
 # Register your models here.
 
 class LessonAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name','location', 'fees', 'available', 'created', 'updated']
-    list_filter = ['available', 'created', 'updated']
+    list_display = ['id', 'name','location','created', 'updated']
+    list_filter = ['id','name']
     
 admin.site.register(Lesson, LessonAdmin)

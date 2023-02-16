@@ -52,7 +52,7 @@
                               {{camp.short_description}}
                            </p>
                            <!-- Button -->	 
-                           <a href={% url 'contact' %} class="btn btn-quaternary  btn-sm mt-2 ml-1">Contact Us</a>
+                           <a href="{% url 'camp_detail' camp.id %}" class="btn btn-secondary mt-4">Read More</a>
                         </div>
                      </div>
                      {% endfor %}

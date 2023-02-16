@@ -12,8 +12,6 @@ class Activity(models.Model):
     enrollment_info = models.TextField(blank=True)
     safety_info = models.TextField(blank=True)
     terms_and_conditions = models.TextField(blank=True)
-    fees = models.IntegerField()
-    available = models.BooleanField(default=True)
     photo_main = models.ImageField(upload_to='photos/%Y/%m/%d', blank=True)
     photo_1 = models.ImageField(upload_to='photos/%Y/%m/%d', blank=True)
     photo_2 = models.ImageField(upload_to='photos/%Y/%m/%d', blank=True)

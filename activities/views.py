@@ -3,11 +3,10 @@ from .models import Activity
 # Create your views here.
 
 def index(request):
-    activities = Activity.objects.filter(available = True)
+    activities = Activity.objects.all()
     context = {'activities':activities}
     return render(request,'activities/activities.html',context)
 
 def activity_detail(request, activity_id):
-    activity = get_object_or_404(Activity, pk=activity_id, available=True)
-    context = {'activity':activity}
-    return render(request, 'activities/activity_detail.html',context)
+    activity = get_object_or_404(Activity, pk=activity_id)
+    return render(request, 'activities/activity_detail.html',{'activity':activity})
