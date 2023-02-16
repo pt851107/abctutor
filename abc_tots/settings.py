@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'activities.apps.ActivitiesConfig',
     'teachers.apps.TeachersConfig',
     'gallerys.apps.GallerysConfig',
-    'shopping_cart.apps.ShoppingCartConfig',
     'daycares.apps.DaycaresConfig',
     'infantcare.apps.InfantcareConfig',
     'pages.apps.PagesConfig',
@@ -72,7 +71,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'shopping_cart.context_processors.shopping_cart'
             ],
         },
     },
