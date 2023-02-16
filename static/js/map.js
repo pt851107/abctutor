@@ -15,7 +15,7 @@
 
 		// custom icon
 		var customIcon = L.icon({
-		iconUrl: '/static/img/mapmarker.png',
+		iconUrl: 'img/mapmarker.png',
 		iconSize:     [64, 64], // size of the icon
 		iconAnchor:   [32, 63] // point of the icon which will correspond to marker's location
 		});
