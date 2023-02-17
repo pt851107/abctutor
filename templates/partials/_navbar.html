@@ -37,7 +37,7 @@
                         {% endwith %}
                       </li>
                       {% if user.is_authenticated %}
-                        <li class="cart-inline-item fas fa-user" style="color:yellow"><a href="{% url 'logout' %}">Logout</a></li>
+                        <li class="cart-inline-item fas fa-user" style="color:yellow"><a href="{% url 'dashboard' %}">Dashboard</a></li>
                       {% else %}
                         <li class="cart-inline-item fas fa-user" style="color:yellow"><a href="{% url 'login' %}">Login</a></li>
                       {% endif %}
