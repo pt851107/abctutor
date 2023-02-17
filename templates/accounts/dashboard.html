@@ -31,13 +31,13 @@
   {% include 'partials/_alerts.html' %}
   <section id="dashboard" class="py-0">
     <div class="container-fluid bg-primary block-padding pattern2 pt-lg-0">
-      <div class="container notepad">
-        <li class="cart-inline-item fas fa-user" style="color:yellow"><a href="{% url 'logout' %}">logout</a></li>
+      <div class="container">
+        <i class="fas fa-user" style="color:yellow"></i><a href="{% url 'logout' %}"> logout</a>
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-12 notepad">
             <h2>Welcome {{user.first_name}}</h2>
             {% if contacts %}
-            <p>Here are the property listings that you have inquired about</p>
+            <p>Here are the services that you have inquired about</p>
             <table class="table">
               <thead>
                 <tr>
@@ -52,7 +52,7 @@
                   <td>{{contact.id}}</td>
                   <td>{{contact.listing}}</td>
                   <td>
-                    <a class="btn btn-light" href="{% url 'listing' contact.listing_id %}">View Listing</a>
+                    <a class="btn btn-light" href="{% url 'listing' contact.listing_id %}">View Details</a>
                   </td>
                 </tr>
               {% endfor %}  
