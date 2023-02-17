@@ -5,6 +5,9 @@ from gallerys.models import Gallery
 from summercamp.models import Camp
 from lessons.models import Lesson
 from activities.models import Activity
+from contacts.models import Comment
+from django.contrib import messages
+
 
 # Create your views here.
 
@@ -49,13 +52,22 @@ def activities(request):
 
 
 def contact(request):
-    return render(request, 'pages/contact.html')
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        title = request.POST['subject']
+        message = request.POST['message']
+        comment = Comment(
+            name=name, email=email, title=title, message=message)
+        comment.save()
+        messages.success(request, 'Comment send!')
+        return render(request, 'pages/contact.html')
 
 
 def teachers(request):
     teachers = Teacher.objects.all()
-    context = {'teachers':teachers}
-    return render(request, 'teachers/teachers.html',context)
+    context = {'teachers': teachers}
+    return render(request, 'teachers/teachers.html', context)
 
 
 def daycare(request):
