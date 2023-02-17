@@ -2,6 +2,7 @@
 {% block title %} | Dashboard {% endblock %}
 {% block content %}
 
+<div id="page-wrapper">
   <!-- Breadcrumb -->
   <!-- Jumbotron -->
   <div class="jumbotron jumbotron-fluid">
@@ -23,38 +24,46 @@
     <!-- /container -->
  </div>
  <!-- /jumbotron -->
+ <svg version="1.1" id="divider" class="primary" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+ viewBox="0 0 1440 126" preserveAspectRatio="none slice" xml:space="preserve">
+ <path class="st0" d="M685.6,38.8C418.7-11.1,170.2,9.9,0,30v96h1440V30C1252.7,52.2,1010,99.4,685.6,38.8z"/>
+</svg>    
   {% include 'partials/_alerts.html' %}
-  <section id="dashboard" class="py-4">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h2>Welcome {{user.first_name}}</h2>
-          {% if contacts %}
-          <p>Here are the property listings that you have inquired about</p>
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Property</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-             {% for contact in contacts %}  
-              <tr>
-                <td>{{contact.id}}</td>
-                <td>{{contact.listing}}</td>
-                <td>
-                  <a class="btn btn-light" href="{% url 'listing' contact.listing_id %}">View Listing</a>
-                </td>
-              </tr>
-             {% endfor %}  
-            </tbody>
-          </table>
-          {% else %}
-          <p>You have no inquiries</p>
-          {% endif %}
+  <section id="dashboard" class="py-0">
+    <div class="container-fluid bg-primary block-padding pattern2 pt-lg-0">
+      <div class="container notepad">
+        <div class="row">
+          <div class="col-md-12">
+            <h2>Welcome {{user.first_name}}</h2>
+            {% if contacts %}
+            <p>Here are the property listings that you have inquired about</p>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Property</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for contact in contacts %}  
+                <tr>
+                  <td>{{contact.id}}</td>
+                  <td>{{contact.listing}}</td>
+                  <td>
+                    <a class="btn btn-light" href="{% url 'listing' contact.listing_id %}">View Listing</a>
+                  </td>
+                </tr>
+              {% endfor %}  
+              </tbody>
+            </table>
+            {% else %}
+            <p>You have no inquiries</p>
+            {% endif %}
+          </div>
         </div>
-      </div>
+      </div> 
     </div>
+  </section>  
+</div>    
 {% endblock %}
