@@ -7,11 +7,13 @@
            <div class="row">
               <div class="col-md-12">
                  <!-- Start Contact Info -->
-                 <ul class="contact-details float-left">
+                 <div class="hidden-xs hidden-sm">
+                    <ul class="contact-details float-left ">
                     <li><i class="fa fa-map-marker"></i>Street name 123 - New York</li>
                     <li><i class="fa fa-envelope"></i><a href="mailto:email@site.com">abc@abctots.com</a></li>
                     <li><i class="fa fa-phone"></i>(123) 456-789</li>
                  </ul>
+                 </div>
                  <!-- End Contact Info -->
                  <!-- Start Social Links -->
                  <ul class="social-list float-left list-inline">
@@ -34,7 +36,11 @@
                         {% endif %}
                         {% endwith %}
                       </li>
-                      <li class="cart-inline-item fas fa-user" style="color:yellow"><a href="{% url 'login' %}"> Log In</a></li>
+                      {% if user.is_authenticated %}
+                        <li class="cart-inline-item fas fa-user" style="color:yellow"><a href="{% url 'logout' %}">Logout</a></li>
+                      {% else %}
+                        <li class="cart-inline-item fas fa-user" style="color:yellow"><a href="{% url 'login' %}">Login</a></li>
+                      {% endif %}
                  </ul>
                  <!-- /End Cart & Login -->
               </div>
