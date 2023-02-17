@@ -23,23 +23,11 @@
                  </ul>
                  <!-- /End Social Links -->
                  <!-- Cart & Login -->
-                 <ul class="cart float-right cart-inline">
-                      <li class="cart-inline-item fas fa-shopping-cart" style="color:yellow">
-                        {% with total_items=shopping_cart|length %}
-                        {% if total_items > 0 %}
-                        Your Cart:   
-                        <a href="{% url 'shopping_cart:cart_detail' %}">
-                        {{total_items}} item{{total_items|pluralize}}
-                        </a>   
-                        {% else %}
-                        <span style="color:white">Your Cart is Empty</span>
-                        {% endif %}
-                        {% endwith %}
-                      </li>
+                 <ul class="contact-details float-right">
                       {% if user.is_authenticated %}
-                        <li class="cart-inline-item fas fa-user" style="color:yellow"><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                        <li><i class="fas fa-user"></i><a href="{% url 'dashboard' %}">Dashboard</a></li>
                       {% else %}
-                        <li class="cart-inline-item fas fa-user" style="color:yellow"><a href="{% url 'login' %}">Login</a></li>
+                        <li><i class="fas fa-user"></i><a href="{% url 'login' %}">Login</a></li>
                       {% endif %}
                  </ul>
                  <!-- /End Login -->
