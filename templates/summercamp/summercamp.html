@@ -1,5 +1,6 @@
 {% extends 'base.html' %} 
 {% load static %}     
+{% block title %} | Summer Camp{% endblock %}
 {% block content %}
       <!-- page wrapper starts -->
       <div id="page-wrapper">
@@ -8,12 +9,12 @@
            <div class="container" >
               <!-- jumbo-heading -->
               <div class="jumbo-heading" data-aos="fade-down">
-                 <h1>Summer Camp</h1>
+                 <h1>Summercamp</h1>
                  <!-- Breadcrumbs -->
                  <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                        <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
-                       <li class="breadcrumb-item active" aria-current="page">Summer Camp</li>
+                       <li class="breadcrumb-item active" aria-current="page">Summercamp</li>
                     </ol>
                  </nav>
                  <!-- /breadcrumb -->
@@ -31,7 +32,7 @@
             </svg>
             <!-- services carousel -->
             <div class="container-fluid bg-primary block-padding pattern2 pt-lg-0">
-               <h2 class="text-light text-center">Find Your Prefect Summer Camp</h2>
+               <h2 class="text-light text-center">All Summercamp for Kids</h2>
                <!-- image  -->
                <div class="container">
                   <div class="carousel-3items owl-carousel owl-theme col-lg-12">
@@ -41,20 +42,18 @@
                      <div class="serviceBox2">
                         <!-- service icon -->
                         <div class="service-icon">
-                           <a href="{{camp.get_absolute_url}}">
                            <img src="{{camp.photo_main.url}}" alt="" class="blob img-fluid">
                            </a>
                         </div>
                         <!-- service content -->
                         <div class="service-content">
-                           <a href="{{camp.get_absolute_url}}">
                               <h4 class="service-head">{{camp.name}}</h4>
                            </a>
                            <p>
                               {{camp.short_description}}
                            </p>
                            <!-- Button -->	 
-                           <a href={{camp.get_absolute_url}} class="btn btn-quaternary  btn-sm mt-2 ml-1">Read More</a>
+                           <a href="{% url 'camp_detail' camp.id %}" class="btn btn-secondary mt-4">Read More</a>
                         </div>
                      </div>
                      {% endfor %}

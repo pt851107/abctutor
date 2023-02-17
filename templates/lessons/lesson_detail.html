@@ -1,5 +1,6 @@
 {% extends 'base.html' %} 
-{% load static %}     
+{% load static %}   
+{% block title %} | Lesson Details {% endblock %}  
 {% block content %}
 
 <div id="page-wrapper">
@@ -56,14 +57,8 @@
                          <ul class="custom pl-0">
                            <li>{{lesson.activities}}</li>
                         </ul>
-                        <br>
-                        <i class='fas fa-dollar-sign' style='font-size:24px'> {{lesson.fees}}</i> per child  
                          <!-- Button -->	 
-                         <form action="{% url "shopping_cart:cart_add" lesson.id %}" method="post">
-                           {{ cart_product_form }}
-                           {% csrf_token %}
-                           <input type="submit" class="btn btn-secondary float-auto mt-1" value="Book Now">
-                         </form>
+                         <a href="{% url 'contact' %}" class="btn btn-secondary mt-3">Contact us</a>
                       </div>
                       <!-- /col-md -->
                       <div class="col-md-12 mt-5">
@@ -126,7 +121,7 @@
                       </div>
                       <!-- /col-md -->
                       <!-- custom link -->
-                      <a class="custom-link float-right mt-5" href="{% url 'lessons' %}">Go back</a>
+                      <a class="custom-link float-right mt-5" href="{% url 'activities' %}">Go back</a>
                    </div>
                    <!-- /row -->
                 </div>

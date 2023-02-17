@@ -1,5 +1,6 @@
 {% extends 'base.html' %} 
 {% load static %}     
+{% block title %} | Daycare {% endblock %}
 {% block content %}
 
 <!-- page wrapper starts -->
@@ -94,43 +95,43 @@
                <!-- row -->
                {% if daycares %}
                <div class="row">
-                    {% for price in daycares %}
+                    {% for daycare in daycares %}
                   <!-- pricing table 1 -->
                   <div class="col-lg-4 col-md-12">
                      <div class="pricingTable">
                         <div 
-                        {% if price.id == 1 %}
+                        {% if daycare.id == 1 %}
                         class="pricingTable-header bg-primary"
-                        {% elif price.id == 2 %}
+                        {% elif daycare.id == 2 %}
                         class="pricingTable-header bg-secondary"
                         {% else %}
                         class="pricingTable-header bg-tertiary"
                         {% endif %}
                         >
-                        <h3 class="title">{{price.name}}</h3>
+                        <h3 class="title">{{daycare.name}}</h3>
                         </div>
                         <!-- /pricingTable-header -->
                         <div 
-                        {% if price.id == 1 %}
+                        {% if daycare.id == 1 %}
                         class="pricingTable-header bg-primary"
-                        {% elif price.id == 2 %}
+                        {% elif daycare.id == 2 %}
                         class="pricingTable-header bg-secondary"
                         {% else %}
                         class="pricingTable-header bg-tertiary"
                         {% endif %}
                         >
                            <div class="price-value">
-                              <span class="amount">${{price.price}}</span>
-                              <span class="month">{{price.discription}}</span>
+                              <span class="amount">${{daycare.price}}</span>
+                              <span class="month">{{daycare.discription}}</span>
                            </div>
                            <!-- /price-value -->
                            <ul>
-                              <li>{{price.intro1}}</li>
-                              <li>{{price.intro2}}</li>
-                              <li>{{price.intro3}}</li>
-                              <li>{{price.intro4}}</li>
+                              <li>{{daycare.intro1}}</li>
+                              <li>{{daycare.intro2}}</li>
+                              <li>{{daycare.intro3}}</li>
+                              <li>{{daycare.intro4}}</li>
                            </ul>
-                           <a href="#" class="btn">Sign Up</a>
+                           <a href="{% url 'contact' %}" class="btn">Sign Up</a>
                         </div>
                         <!-- /pricing content -->
                      </div>
@@ -178,7 +179,7 @@
                </table>
                <!-- /table-->
             </div>
-            <!-- /col-lg-12-->
+            <!-- /col-lg-12--> 
          </div>
          <!-- /page -->
         </div>

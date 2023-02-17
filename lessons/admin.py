@@ -3,8 +3,7 @@ from .models import Lesson
 # Register your models here.
 
 class LessonAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name', 'slug', 'location', 'fees', 'available', 'created', 'updated']
-    list_filter = ['available', 'created', 'updated']
-    prepopulated_fields = {'slug': ('name',)}
+    list_display = ['id', 'name','location','created', 'updated']
+    list_filter = ['id','name']
     
 admin.site.register(Lesson, LessonAdmin)

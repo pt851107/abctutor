@@ -1,5 +1,6 @@
 {% extends 'base.html' %} 
-{% load static %}     
+{% load static %}   
+{% block title %} | Lessons {% endblock %}  
 {% block content %}
       <!-- page wrapper starts -->
       <div id="page-wrapper">
@@ -41,20 +42,18 @@
                      <div class="serviceBox2">
                         <!-- service icon -->
                         <div class="service-icon">
-                           <a href="{{lesson.get_absolute_url}}">
                            <img src="{{lesson.photo_main.url}}" alt="" class="blob img-fluid">
                            </a>
                         </div>
                         <!-- service content -->
                         <div class="service-content">
-                           <a href="{{lesson.get_absolute_url}}">
                               <h4 class="service-head">{{lesson.name}}</h4>
                            </a>
                            <p>
                               {{lesson.short_description}}
                            </p>
                            <!-- Button -->	 
-                           <a href={{lesson.get_absolute_url}} class="btn btn-quaternary  btn-sm mt-2 ml-1">Read More</a>
+                           <a href={% url 'lesson_detail' lesson.id %} class="btn btn-quaternary  btn-sm mt-2 ml-1">More Details</a>
                         </div>
                      </div>
                      {% endfor %}

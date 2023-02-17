@@ -1,19 +1,21 @@
 {% extends 'base.html' %} 
 {% load static %}     
+{% block title %} | Infant Care {% endblock %}
 {% block content %}
-      <!-- page wrapper starts -->
-      <div id="page-wrapper">
-        <!-- Jumbotron -->
+
+<!-- page wrapper starts -->
+  <div id="page-wrapper">
+      <!-- Jumbotron -->
         <div class="jumbotron jumbotron-fluid">
            <div class="container" >
               <!-- jumbo-heading -->
               <div class="jumbo-heading" data-aos="fade-down">
-                 <h1>Infant Care</h1>
+                 <h1>Infant care</h1>
                  <!-- Breadcrumbs -->
                  <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                        <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
-                       <li class="breadcrumb-item active" aria-current="page">Infant Care</li>
+                       <li class="breadcrumb-item active" aria-current="page">Infant care</li>
                     </ol>
                  </nav>
                  <!-- /breadcrumb -->
@@ -23,115 +25,123 @@
            <!-- /container -->
         </div>
         <!-- /jumbotron -->
-         <!-- ==== Page Content ==== -->   
-            <!-- SVG divider  -->
-            <svg version="1.1" id="divider" class="primary" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-               viewBox="0 0 1440 126" preserveAspectRatio="none slice" xml:space="preserve">
-               <path class="st0" d="M685.6,38.8C418.7-11.1,170.2,9.9,0,30v96h1440V30C1252.7,52.2,1010,99.4,685.6,38.8z"/>
-            </svg>
-            <!-- services carousel -->
-            <div class="container-fluid bg-primary block-padding pattern2 pt-lg-0">
-               <h2 class="text-light text-center">Infant Care</h2>
-               <!-- image  -->
-               <div class="container">
-                  <div class="carousel-3items owl-carousel owl-theme col-lg-12">
-                     {% if infantcare %}
-                     {% for infantcare_plan in infantcare %}
-                     <!-- service 1  -->
-                     <div class="serviceBox2">
-                        <!-- service icon -->
-                        <div class="service-icon">
-                           <a href="{{infantcare_plan.get_absolute_url}}">
-                           <img src="{{infantcare_plan.photo_main.url}}" alt="" class="blob img-fluid">
-                           </a>
-                        </div>
-                        <!-- service content -->
-                        <div class="service-content">
-                           <a href="{{infantcare_plan.get_absolute_url}}">
-                              <h4 class="service-head">{{infantcare_plan.name}}</h4>
-                           </a>
-                           <p>
-                              {{infantcare_plan.short_description}}
-                           </p>
-                           <!-- Button -->	 
-                           <a href={{infantcare_plan.get_absolute_url}} class="btn btn-quaternary  btn-sm mt-2 ml-1">Read More</a>
-                        </div>
-                     </div>
-                     {% endfor %}
-                     {% else %}
-                     <p>No information is available now</p>
-                     {% endif %}
-                  </div>
-                  <!-- /owl-services -->
+
+         <!-- ==== Page Content ==== -->
+         <div class="page container">
+            <!-- row-->
+            <div class="row mb-5">
+               <div class="col-lg-5">
+                  <img src="{% static 'img/pricing.jpg' %}" alt="" class="img-fluid rounded d-block mx-auto">
                </div>
-               <!-- /container -->
+               <!-- /col-lg-->
+               <div class="col-lg-7 mt-3">
+                  <h2>Our Rates & Fees </h2>
+                  <p>
+                     Etiam vestibulum sit amet nulla vel ornare. Vestibulum vitae turpis ac sapien pharetra facilisis. Curabitur non libero justo.
+                     <!-- alert-->
+                  <div class="alert alert-warning mt-3" role="alert">
+                     <h6> Payment information</h6>
+                     <p>Curabitur et quam felis. Nulla rhoncus laoreet dolor, et vestibulum sem consectetur a. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tincidunt turpis ut sagittis tempor.
+                  </div>
+               </div>
+               <!-- /col-lg-->
             </div>
-            <!-- /mt-5 -->
-            <!-- container-->
-            <div class="container block-padding">
+            <!-- /row-->
+            <!-- pricing tables -->
+            <div class="col-lg-12 mt-5">
+               <!-- row -->
+               {% if infantcares %}
                <div class="row">
-                  <div class="col-lg-6">
-                     <img src="{% static 'img/services/serviceimg1.jpg' %}" alt="" class="img-fluid rounded">
-                     <!-- ornament-->
-                     <div class="ornament-stars" data-aos="fade-up-right"></div>
-                  </div>
-                  <div class="col-lg-6 res-margin">
-                     <h3 class="res-margin">Frequently asked questions</h3>
-                     <div class="accordion mt-5">
-                        <!-- collapsible accordion 1 -->
-                        <div class="card">
-                           <div class="card-header">
-                              <a class="card-link" data-toggle="collapse" href="#collapseOne">
-                              Our Philosophy
-                              </a>
-                           </div>
-                           <!-- /card-header -->
-                           <div id="collapseOne" class="collapse show" data-parent=".accordion">
-                              <div class="card-body">
-                                 <p>Donec commodo sodales ex, scelerisque laoreet nibh hendrerit id. In aliquet magna nec lobortis maximus. Etiam rhoncus leo a dolor placerat, nec elementum ipsum convall.</p>
-                              </div>
-                           </div>
+                    {% for infantcare in infantcares %}
+                  <!-- pricing table 1 -->
+                  <div class="col-lg-4 col-md-12">
+                     <div class="pricingTable">
+                        <div 
+                        {% if infantcare.id == 1 %}
+                        class="pricingTable-header bg-primary"
+                        {% elif infantcare.id == 2 %}
+                        class="pricingTable-header bg-secondary"
+                        {% else %}
+                        class="pricingTable-header bg-tertiary"
+                        {% endif %}
+                        >
+                        <h3 class="title">{{infantcare.name}}</h3>
                         </div>
-                        <!-- /card -->
-                        <!-- collapsible accordion 2 -->
-                        <div class="card">
-                           <div class="card-header">
-                              <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
-                              Our Organization
-                              </a>
+                        <!-- /pricingTable-header -->
+                        <div 
+                        {% if infantcare.id == 1 %}
+                        class="pricingTable-header bg-primary"
+                        {% elif infantcare.id == 2 %}
+                        class="pricingTable-header bg-secondary"
+                        {% else %}
+                        class="pricingTable-header bg-tertiary"
+                        {% endif %}
+                        >
+                           <div class="price-value">
+                              <span class="amount">${{infantcare.price}}</span>
+                              <span class="month">{{infantcare.discription}}</span>
                            </div>
-                           <div id="collapseTwo" class="collapse" data-parent=".accordion">
-                              <div class="card-body">
-                                 <p>Etiam rhoncus leo a dolor placerat, nec elementum ipsum convall Maecenas at arcu risus scelerisque laoree.</p>
-                              </div>
-                           </div>
+                           <!-- /price-value -->
+                           <ul>
+                              <li>{{infantcare.intro1}}</li>
+                              <li>{{infantcare.intro2}}</li>
+                              <li>{{infantcare.intro3}}</li>
+                              <li>{{infantcare.intro4}}</li>
+                           </ul>
+                           <a href="{% url 'contact' %}" class="btn">Sign Up</a>
                         </div>
-                        <!-- /card -->
-                        <!-- collapsible accordion 3 -->
-                        <div class="card">
-                           <div class="card-header">
-                              <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
-                              Partnerships with our team
-                              </a>
-                           </div>
-                           <div id="collapseThree" class="collapse" data-parent=".accordion">
-                              <div class="card-body">
-                                 <p>Aliquam erat volutpat In id fermentum augue, ut pellentesque leo. Maecenas at arcu risus. Donec commodo sodales ex, scelerisque laoreet nibh hendrerit id. In aliquet magna nec lobortis maximus. Etiam rhoncus leo a dolor placerat, nec elementum ipsum convall.</p>
-                              </div>
-                           </div>
-                        </div>
-                        <!-- /card -->
+                        <!-- /pricing content -->
                      </div>
-                     <!-- /accordion -->
+                     <!-- /pricing-table -->
                   </div>
-                  <!-- /col-lg-8 -->
-               </div>
-               <!-- /row -->
+                  <!-- /col-md -->
+                  {% endfor %}
+                </div>
+                <!-- /row  -->
+                {% else %}
+                <p>no price value available, please enter information at administrative page</p>
+                {% endif %}
             </div>
-            <!-- /container -->
+            <!-- /col-lg-12 -->   <!-- row -->
+            <div class="col-lg-12 mt-5">
+               <h4>Administrative charges</h4>
+               <p>
+                  Etiam vestibulum sit amet nulla vel ornare. Vestibulum vitae turpis ac sapien pharetra facilisis. Curabitur non libero justo. Suspendisse at ultrices velit. Quisque aliquet quis nibh sed feugiat. Curabitur et quam felis. Nulla rhoncus laoreet dolor, et vestibulum sem consectetur a. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tincidunt turpis ut sagittis tempor.
+                  <!-- table -->
+               <table class="table table-striped">
+                  <thead>
+                     <tr>
+                        <th>Ages</th>
+                        <th>Fee Type</th>
+                        <th>Value</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>12months to 2 years</td>
+                        <td>Registration fee (one time only)</td>
+                        <td>$40</td>
+                     </tr>
+                     <tr>
+                        <td>2 years to 8 years</td>
+                        <td>Registration fee (one time only)</td>
+                        <td>$20</td>
+                     </tr>
+                     <tr>
+                        <td>8 years to 12 years</td>
+                        <td>Registration fee (one time only)</td>
+                        <td>$20</td>
+                     </tr>
+                  </tbody>
+               </table>
+               <!-- /table-->
+            </div>
+            <!-- /col-lg-12-->
          </div>
          <!-- /page -->
-      </div>   
+        </div>
+    <!--/ page-wrapper -->
+
 {% endblock %}
 
  

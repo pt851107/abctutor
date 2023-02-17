@@ -1,5 +1,6 @@
 {% extends 'base.html' %} 
 {% load static %}     
+{% block title %} | Activities {% endblock %}
 {% block content %}
       <!-- page wrapper starts -->
       <div id="page-wrapper">
@@ -35,26 +36,24 @@
                <!-- image  -->
                <div class="container">
                   <div class="carousel-3items owl-carousel owl-theme col-lg-12">
-                     {% if activitiess %}
-                     {% for activity in activitiess %}
+                     {% if activities %}
+                     {% for activity in activities %}
                      <!-- service 1  -->
                      <div class="serviceBox2">
                         <!-- service icon -->
                         <div class="service-icon">
-                           <a href="{{activity.get_absolute_url}}">
                            <img src="{{activity.photo_main.url}}" alt="" class="blob img-fluid">
                            </a>
                         </div>
                         <!-- service content -->
                         <div class="service-content">
-                           <a href="{{activity.get_absolute_url}}">
                               <h4 class="service-head">{{activity.name}}</h4>
                            </a>
                            <p>
                               {{activity.short_description}}
                            </p>
                            <!-- Button -->	 
-                           <a href={{activity.get_absolute_url}} class="btn btn-quaternary  btn-sm mt-2 ml-1">Read More</a>
+                           <a href={% url 'activity_detail' activity.id %} class="btn btn-quaternary  btn-sm mt-2 ml-1">More Details</a>
                         </div>
                      </div>
                      {% endfor %}

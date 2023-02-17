@@ -30,11 +30,12 @@ class Infantcare(models.Model):
     def __str__(self):
         return self.name
 
-<<<<<<< HEAD:infantcare/models.py
+
+<< << << < HEAD: infantcare/models.py
     def get_absolute_url(self):
         return reverse('infantcare:infantcare_detail',
-=======
+== == == =
     # def get_absolute_url(self):
         return reverse('daycare:daycare_detail',
->>>>>>> main:daycare/models.py
+>>>>>> > main: daycare/models.py
                        args=[self.id, self.slug])

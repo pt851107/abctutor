@@ -1,5 +1,6 @@
 {% extends 'base.html' %} 
 {% load static %}     
+{% block title %} | Welcome {% endblock %}
 {% block content %}
 <!-- page wrapper starts -->
   <div id="page-wrapper">
@@ -23,7 +24,7 @@
                  <div class="ls-l header-wrapper" data-ls="offsetyin:150; durationin:700; delayin:200; easingin:easeOutQuint; rotatexin:20; scalexin:1.4; offsetyout:600; durationout:400;">
                     <div class="header-text">
                        <span>Welcome to</span> 
-                       <h1> ABC TOTS</h1>
+                       <h1> DIPA </h1>
                        <!--the div below is hidden on small screens  -->
                        <div class="hidden-small">
                           <p class="header-p">We offer high quality Daycare Services, contact us or visit us today for more information</p>
@@ -96,8 +97,6 @@
                            <p class="card-text">
                               In aliquet magna nec lobortis maximus. Etiam rhoncus leo a dolor placerat lorem
                            </p>
-                           <!-- button show on mobile only,where flip is disabled -->
-                           <a href="#" class="btn d-lg-none">Our Services</a>
                         </div>
                         <!-- /p-5 -->
                         <!-- image -->
@@ -295,9 +294,9 @@
                        <nav>
                           <div class="nav nav-tabs" id="nav-tab" role="tablist">
                              <a class="nav-item nav-link active" id="tab1-tab" data-toggle="tab" href="#tab1"><i class="flaticon-abc-block"></i>Daycare</a>
-                             <a class="nav-item nav-link" id="tab2-tab" data-toggle="tab" href="#tab2" ><i class="flaticon-kids-1"></i>Summer Camp</a>
-                             <a class="nav-item nav-link" id="tab3-tab" data-toggle="tab" href="#tab3" ><i class="flaticon-smiling-baby"></i>Infant care</a>
-                             <a class="nav-item nav-link" id="tab4-tab" data-toggle="tab" href="#tab4"><i class="flaticon-blackboard"></i>Classes</a>
+                             <a class="nav-item nav-link" id="tab3-tab" data-toggle="tab" href="#tab2" ><i class="flaticon-smiling-baby"></i>Infant care</a>
+                             <a class="nav-item nav-link" id="tab2-tab" data-toggle="tab" href="#tab3" ><i class="flaticon-kids-1"></i>Summer Camp</a>
+                             <a class="nav-item nav-link" id="tab4-tab" data-toggle="tab" href="#tab4"><i class="flaticon-blackboard"></i>Lessons</a>
                              <a class="nav-item nav-link" id="tab5-tab" data-toggle="tab" href="#tab5" ><i class="flaticon-kids"></i>Activities</a>
                           </div>
                        </nav>
@@ -322,39 +321,14 @@
                                     <li>Educational activities in our daily plan</li>
                                  </ul>
                                  <!-- Button -->	 
-                                 <a href="#" class="btn btn-secondary mt-4">Read More</a>
+                                 <a href="{% url 'daycare' %}" class="btn btn-secondary mt-4">Read More</a>
                               </div>
                               <!-- /col-lg -->
                            </div>
                            <!-- row -->
                         </div>
                         <!-- ./Tab-pane -->
-                        <div class="tab-pane" id="tab2" role="tabpanel" aria-labelledby="tab2-tab">
-                           <div class="row">
-                              <div class="col-lg-6">
-                                 <h3>Summer Camp</h3>
-                                 <p>Maecenas at arcu risus. Donec commodo sodales ex, scelerisque laoreet nibh hendrerit id. In aliquet magna nec lobortis maximus. Etiam rhoncus leo a dolor placerat, nec elementum ipsum convall.</p>
-                                 <ul class="custom pl-0">
-                                    <li>Over 30 Qualified professionals</li>
-                                    <li>We offer you our quality services since 2002</li>
-                                    <li>Educational activities in our daily plan</li>
-                                 </ul>
-                                 <!-- Button -->	 
-                                 <a href="#" class="btn btn-secondary mt-4">Read More</a>
-                              </div>
-                              <!-- /col-lg -->
-                              <div class="col-lg-6 res-margin">
-                                 <!-- image -->
-                                 <img src="{% static 'img/services/service2.jpg' %}" alt="" class="rounded img-fluid">
-                                 <!-- ornament starts-->
-                                 <div class="ornament-stars" data-aos="fade-right"></div>
-                              </div>
-                              <!-- col-lg -->
-                           </div>
-                           <!-- row -->
-                        </div>
-                        <!-- ./Tab-pane -->
-                        <div class="tab-pane" id="tab3" role="tabpanel" aria-labelledby="tab3-tab">
+                        <div class="tab-pane" id="tab2" role="tabpanel" aria-labelledby="tab3-tab">
                            <div class="row">
                               <div class="col-lg-6">
                                  <!-- image -->
@@ -372,17 +346,17 @@
                                     <li>Educational activities in our daily plan</li>
                                  </ul>
                                  <!-- Button -->	 
-                                 <a href="#" class="btn btn-secondary mt-4">Read More</a>
+                                 <a href="{% url 'infantcare' %}" class="btn btn-secondary mt-4">Read More</a>
                               </div>
                               <!-- /col-lg -->
                            </div>
                            <!-- row -->
                         </div>
                         <!-- ./Tab-pane -->
-                        <div class="tab-pane" id="tab4" role="tabpanel" aria-labelledby="tab4-tab">
+                        <div class="tab-pane" id="tab3" role="tabpanel" aria-labelledby="tab2-tab">
                            <div class="row">
                               <div class="col-lg-6">
-                                 <h3>Classes</h3>
+                                 <h3>Summer Camp</h3>
                                  <p>Maecenas at arcu risus. Donec commodo sodales ex, scelerisque laoreet nibh hendrerit id. In aliquet magna nec lobortis maximus. Etiam rhoncus leo a dolor placerat, nec elementum ipsum convall.</p>
                                  <ul class="custom pl-0">
                                     <li>Over 30 Qualified professionals</li>
@@ -390,7 +364,32 @@
                                     <li>Educational activities in our daily plan</li>
                                  </ul>
                                  <!-- Button -->	 
-                                 <a href="#" class="btn btn-secondary mt-4">Read More</a>
+                                 <a href="{% url 'summercamp' %}" class="btn btn-secondary mt-4">Read More</a>
+                              </div>
+                              <!-- /col-lg -->
+                              <div class="col-lg-6 res-margin">
+                                 <!-- image -->
+                                 <img src="{% static 'img/services/service2.jpg' %}" alt="" class="rounded img-fluid">
+                                 <!-- ornament starts-->
+                                 <div class="ornament-stars" data-aos="fade-right"></div>
+                              </div>
+                              <!-- col-lg -->
+                           </div>
+                           <!-- row -->
+                        </div>
+                        <!-- ./Tab-pane -->
+                        <div class="tab-pane" id="tab4" role="tabpanel" aria-labelledby="tab4-tab">
+                           <div class="row">
+                              <div class="col-lg-6">
+                                 <h3>Lessons</h3>
+                                 <p>Maecenas at arcu risus. Donec commodo sodales ex, scelerisque laoreet nibh hendrerit id. In aliquet magna nec lobortis maximus. Etiam rhoncus leo a dolor placerat, nec elementum ipsum convall.</p>
+                                 <ul class="custom pl-0">
+                                    <li>Over 30 Qualified professionals</li>
+                                    <li>We offer you our quality services since 2002</li>
+                                    <li>Educational activities in our daily plan</li>
+                                 </ul>
+                                 <!-- Button -->	 
+                                 <a href="{% url 'lessons' %}" class="btn btn-secondary mt-4">Read More</a>
                               </div>
                               <!-- /col-lg -->
                               <div class="col-lg-6 res-margin">
@@ -422,7 +421,7 @@
                                     <li>Educational activities in our daily plan</li>
                                  </ul>
                                  <!-- Button -->	 
-                                 <a href="#" class="btn btn-secondary mt-4">Read More</a>
+                                 <a href="{% url 'activities' %}" class="btn btn-secondary mt-4">Read More</a>
                               </div>
                               <!-- /col-lg -->
                            </div>
@@ -560,7 +559,78 @@
            <!-- /row-->
         </section>
         <!-- /section ends-->
-        
+        <section id="gallery-home" class="container-fluid bg-tertiary no-bg-sm">
+         <div class="container">
+            <div class="col-lg-6 text-center text-light offset-lg-3">
+               <h2>Our Photo Gallery</h2>
+               <p>In aliquet magna nec lobortis maximus. Etiam rhoncus leo a dolor placerat, nec elementum ipsum convall.</p>
+            </div>
+            <!-- /col-md-6 -->
+         </div>
+         <!-- /container -->
+         <!-- owl carousel gallery  -->
+         <div class="owl-stage owl-carousel owl-theme top-centered-nav mt-5 magnific-popup">
+            {% if gallerys %}
+            {% for gallery in gallerys %}
+            <div class="col-md-12 gallery-img hover-border">
+               <!-- image -->
+               <img src="{{gallery.photo_1.url}}" class="img-fluid rounded" alt="">
+            </div>
+            <!-- /col-md-12 -->
+            <div class="col-md-12 gallery-img hover-border">
+               <img src="{{gallery.photo_2.url}}" class="img-fluid rounded" alt="">
+            </div>
+            <!-- /col-md-12 -->
+            <div class="col-md-12 gallery-img hover-border">
+               <img src="{{gallery.photo_3.url}}" class="img-fluid rounded" alt="">
+            </div>
+            <!-- /col-md-12 -->
+            <div class="col-md-12 gallery-img hover-border">
+               <!-- image -->
+               <img src="{{gallery.photo_4.url}}" class="img-fluid rounded" alt="">
+            </div>
+            <!-- /col-md-12 -->
+            <div class="col-md-12 gallery-img hover-border">
+               <img src="{{gallery.photo_5.url}}" class="img-fluid rounded" alt="">
+            </div>
+            <!-- /col-md-12 -->
+            <div class="col-md-12 gallery-img hover-border">
+               <img src="{{gallery.photo_6.url}}" class="img-fluid rounded" alt="">
+            </div>
+            <!-- /col-md-12 --><div class="col-md-12 gallery-img hover-border">
+               <!-- image -->
+               <img src="{{gallery.photo_7.url}}" class="img-fluid rounded" alt="">
+            </div>
+            <!-- /col-md-12 -->
+            <div class="col-md-12 gallery-img hover-border">
+               <img src="{{gallery.photo_8.url}}" class="img-fluid rounded" alt="">
+            </div>
+            <!-- /col-md-12 -->
+            <div class="col-md-12 gallery-img hover-border">
+               <img src="{{gallery.photo_9.url}}" class="img-fluid rounded" alt="">
+            </div>
+            <!-- /col-md-12 --><div class="col-md-12 gallery-img hover-border">
+               <!-- image -->
+               <img src="{{gallery.photo_10.url}}" class="img-fluid rounded" alt="">
+            </div>
+            <!-- /col-md-12 -->
+            <div class="col-md-12 gallery-img hover-border">
+               <img src="{{gallery.photo_11.url}}" class="img-fluid rounded" alt="">
+            </div>
+            <!-- /col-md-12 -->
+            <div class="col-md-12 gallery-img hover-border">
+               <img src="{{gallery.photo_12.url}}" class="img-fluid rounded" alt="">
+            </div>
+            <!-- /col-md-12 -->
+            {% endfor %}
+            {% else %}
+            <p>no photos available now</p>
+            {% endif %}
+         </div>
+         <!-- /owl-carousel -->	
+      </section>
+      <!-- /page -->
+
         <!-- section -->		   
         <section id="callout" class=" container-fluid bg-fixed">
            <div class="container">

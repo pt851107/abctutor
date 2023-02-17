@@ -3,7 +3,6 @@ from .models import Daycare
 
 # Create your views here.
 
-
 def index(request):
     daycares = Daycare.objects.all()
     context = {'daycares': daycares}

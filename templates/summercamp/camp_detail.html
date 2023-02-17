@@ -1,5 +1,6 @@
 {% extends 'base.html' %} 
 {% load static %}     
+{% block title %} | Camp Details {% endblock %}
 {% block content %}
 
 <div id="page-wrapper">
@@ -13,7 +14,7 @@
              <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                    <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
-                   <li class="breadcrumb-item"><a href="{% url 'summercamp' %}">Summer Camp</a></li>
+                   <li class="breadcrumb-item"><a href="{% url 'summercamp' %}">Summercamp</a></li>
                    <li class="breadcrumb-item active" aria-current="page">{{camp.name}}</li>
                 </ol>
              </nav>
@@ -56,14 +57,8 @@
                          <ul class="custom pl-0">
                            <li>{{camp.activities}}</li>
                         </ul>
-                        <br>
-                        <i class='fas fa-dollar-sign' style='font-size:24px'> {{camp.fees}}</i> per child  
                          <!-- Button -->	 
-                         <form action="{% url "shopping_cart:cart_add" camp.id %}" method="post">
-                           {{ cart_product_form }}
-                           {% csrf_token %}
-                           <input type="submit" class="btn btn-secondary float-auto mt-1" value="Book Now">
-                         </form>
+                         <a href="{% url 'contact' %}" class="btn btn-secondary mt-3">Contact us</a>
                       </div>
                       <!-- /col-md -->
                       <div class="col-md-12 mt-5">
@@ -126,7 +121,7 @@
                       </div>
                       <!-- /col-md -->
                       <!-- custom link -->
-                      <a class="custom-link float-right mt-5" href="{% url 'summercamp' %}">Go back</a>
+                      <a class="custom-link float-right mt-5" href="{% url 'activities' %}">Go back</a>
                    </div>
                    <!-- /row -->
                 </div>
@@ -145,7 +140,8 @@
                       <a href="{% url 'infantcare' %}" class="list-group-item list-group-item-action">Infant Care</a>
                       <a href="{% url 'summercamp' %}" class="list-group-item list-group-item-action">Summer Camp</a>
                       <a href="{% url 'lessons' %}" class="list-group-item list-group-item-action">Lessons</a>
-                      <a href="{% url 'activities' %}" class="list-group-item list-group-item-action">Activities</a>                   </div>
+                      <a href="{% url 'activities' %}" class="list-group-item list-group-item-action">Activities</a>
+                   </div>
                    <!-- /list-group -->
                 </div>
                 <!-- /widget-area -->

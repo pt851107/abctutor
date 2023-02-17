@@ -8,22 +8,13 @@
        <div class="container" >
           <!-- jumbo-heading -->
           <div class="jumbo-heading" data-aos="fade-down">
-<<<<<<< HEAD:templates/infantcare/infantcare_detail.html
              <h1>Infant Care</h1>
-=======
-             <h1>Daycare Details</h1>
->>>>>>> main:templates/daycare/daycare_detail.html
              <!-- Breadcrumbs -->
              <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                    <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
-<<<<<<< HEAD:templates/infantcare/infantcare_detail.html
                    <li class="breadcrumb-item"><a href="{% url 'summercamp' %}">Infant Care</a></li>
                    <li class="breadcrumb-item active" aria-current="page">{{infantcare_case.name}}</li>
-=======
-                   <li class="breadcrumb-item"><a href="{% url 'daycare' %}">Daycare</a></li>
-                   <li class="breadcrumb-item active" aria-current="page">{{daycare.name}}</li>
->>>>>>> main:templates/daycare/daycare_detail.html
                 </ol>
              </nav>
              <!-- /breadcrumb -->
@@ -40,7 +31,6 @@
              <!-- page with sidebar starts -->
              <div class="col-lg-9 page-with-sidebar">
                 <div class="col-md-12">
-<<<<<<< HEAD:templates/infantcare/infantcare_detail.html
                    <h2>{{infantcare_case.name}}</h2>
                    <i class='fas fa-calendar-alt'> {{infantcare_case.camp_date}}</i>
                    <br>
@@ -49,29 +39,13 @@
                    <p class="h7 mt-1">{{infantcare_case.short_description}}</p>
                    <!-- Image -->
                    <p>{{infantcare_case.long_description}}</p>
-=======
-                   <h2>{{daycare.name}}</h2>
-                   <i class='fas fa-calendar-alt'> {{daycare.camp_date}}</i>
-                   <br>
-                   <i class='fas fa-map-marker'> {{daycare.location}}</i>
-                   <br>
-                   <p class="h7 mt-1">{{daycare.short_description}}</p>
-                   <!-- Image -->
-                   <p>{{daycare.long_description}}</p>
->>>>>>> main:templates/daycare/daycare_detail.html
                    <!-- row -->
                    <div class="row">
                       <div class="col-md-5">
                          <div class="col-md-12 carousel-1item owl-carousel owl-theme "  data-aos="fade-in" >
-<<<<<<< HEAD:templates/infantcare/infantcare_detail.html
                             <img src="{{infantcare_case.photo_main.url}}" class="img-fluid rounded-circle" alt="">
                             <img src="{{infantcare_case.photo_1.url}}" class="img-fluid rounded-circle" alt="">
                             <img src="{{infantcare_case.photo_2.url}}" class="img-fluid rounded-circle" alt="">
-=======
-                            <img src="{{daycare.photo_main.url}}" class="img-fluid rounded-circle" alt="">
-                            <img src="{{daycare.photo_1.url}}" class="img-fluid rounded-circle" alt="">
-                            <img src="{{daycare.photo_2.url}}" class="img-fluid rounded-circle" alt="">
->>>>>>> main:templates/daycare/daycare_detail.html
                          </div>
                          <!-- /col-md- -->
                       </div>
@@ -80,21 +54,12 @@
                          <h4>Activities</h4>
                          <!-- Image -->
                          <ul class="custom pl-0">
-<<<<<<< HEAD:templates/infantcare/infantcare_detail.html
                            <li>{{infantcare_case.activities}}</li>
                         </ul>
                         <br>
                         <i class='fas fa-dollar-sign' style='font-size:24px'> {{infantcare_case.fees}}</i> per child  
                          <!-- Button -->	 
                          <form action="{% url "shopping_cart:cart_add" infantcare_case.id %}" method="post">
-=======
-                           <li>{{daycare.activities}}</li>
-                        </ul>
-                        <br>
-                        <i class='fas fa-dollar-sign' style='font-size:24px'> {{daycare.fees}}</i> per child  
-                         <!-- Button -->	 
-                         <form action="{% url "shopping_cart:cart_add" daycare.id %}" method="post">
->>>>>>> main:templates/daycare/daycare_detail.html
                            {{ cart_product_form }}
                            {% csrf_token %}
                            <input type="submit" class="btn btn-secondary float-auto mt-1" value="Book Now">
@@ -114,11 +79,7 @@
                                <!-- /card-header -->
                                <div id="collapseOne" class="collapse show" data-parent=".accordion">
                                   <div class="card-body">
-<<<<<<< HEAD:templates/infantcare/infantcare_detail.html
                                      <p>{{infantcare_case.payment_details}}</p>
-=======
-                                     <p>{{daycare.payment_details}}</p>
->>>>>>> main:templates/daycare/daycare_detail.html
                                   </div>
                                </div>
                             </div>
@@ -132,11 +93,7 @@
                                </div>
                                <div id="collapseTwo" class="collapse" data-parent=".accordion">
                                   <div class="card-body">
-<<<<<<< HEAD:templates/infantcare/infantcare_detail.html
                                      <p>{{infantcare_case.enrollment_info}}</p>
-=======
-                                     <p>{{daycare.enrollment_info}}</p>
->>>>>>> main:templates/daycare/daycare_detail.html
                                   </div>
                                </div>
                             </div>
@@ -150,11 +107,7 @@
                                </div>
                                <div id="collapseThree" class="collapse" data-parent=".accordion">
                                   <div class="card-body">
-<<<<<<< HEAD:templates/infantcare/infantcare_detail.html
                                      <p>{{infantcare_case.safety.info}}</p>
-=======
-                                     <p>{{daycare.safety.info}}</p>
->>>>>>> main:templates/daycare/daycare_detail.html
                                   </div>
                                </div>
                             </div>
@@ -167,21 +120,13 @@
                          <h5>Terms & Conditions</h5>
                          <!-- custom-list -->
                          <p>
-<<<<<<< HEAD:templates/infantcare/infantcare_detail.html
                            {{infantcare_case.terms_and_conditions}}
-=======
-                           {{daycare.terms_and_conditions}}
->>>>>>> main:templates/daycare/daycare_detail.html
                          </p>
                          <!-- /ul -->
                       </div>
                       <!-- /col-md -->
                       <!-- custom link -->
-<<<<<<< HEAD:templates/infantcare/infantcare_detail.html
                       <a class="custom-link float-right mt-5" href="{% url 'infantcare' %}">Go back</a>
-=======
-                      <a class="custom-link float-right mt-5" href="{% url 'daycare' %}">Go back</a>
->>>>>>> main:templates/daycare/daycare_detail.html
                    </div>
                    <!-- /row -->
                 </div>
