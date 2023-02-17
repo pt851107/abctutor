@@ -25,6 +25,7 @@
            <!-- /container -->
         </div>
         <!-- /jumbotron -->
+<<<<<<< HEAD
 
          <!-- ==== Page Content ==== -->
          <div class="page container">
@@ -32,6 +33,48 @@
             <div class="row mb-5">
                <div class="col-lg-5">
                   <img src="{% static 'img/pricing.jpg' %}" alt="" class="img-fluid rounded d-block mx-auto">
+=======
+         <!-- ==== Page Content ==== -->   
+            <!-- SVG divider  -->
+            <svg version="1.1" id="divider" class="primary" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+               viewBox="0 0 1440 126" preserveAspectRatio="none slice" xml:space="preserve">
+               <path class="st0" d="M685.6,38.8C418.7-11.1,170.2,9.9,0,30v96h1440V30C1252.7,52.2,1010,99.4,685.6,38.8z"/>
+            </svg>
+            <!-- services carousel -->
+            <div class="container-fluid bg-primary block-padding pattern2 pt-lg-0">
+               <h2 class="text-light text-center">Daycare plans that suit you well</h2>
+               <!-- image  -->
+               <div class="container">
+                  <div class="carousel-3items owl-carousel owl-theme col-lg-12">
+                     {% if daycare %}
+                     {% for daycare_plan in daycare %}
+                     <!-- service 1  -->
+                     <div class="serviceBox2">
+                        <!-- service icon -->
+                        <div class="service-icon">
+                           <a href="{{daycare_plan.get_absolute_url}}">
+                           <img src="{{daycare_plan.photo_main.url}}" alt="" class="blob img-fluid">
+                           </a>
+                        </div>
+                        <!-- service content -->
+                        <div class="service-content">
+                           <a href="{{daycare_plan.get_absolute_url}}">
+                              <h4 class="service-head">{{daycare_plan.name}}</h4>
+                           </a>
+                           <p>
+                              {{daycare_plan.short_description}}
+                           </p>
+                           <!-- Button -->	 
+                           <a href={{daycare_plan.get_absolute_url}} class="btn btn-quaternary btn-sm mt-2 ml-1">Read More</a>
+                        </div>
+                     </div>
+                     {% endfor %}
+                     {% else %}
+                     <p>No information is available now</p>
+                     {% endif %}
+                  </div>
+                  <!-- /owl-services -->
+>>>>>>> main
                </div>
                <!-- /col-lg-->
                <div class="col-lg-7 mt-3">
