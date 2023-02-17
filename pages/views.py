@@ -61,7 +61,7 @@ def contact(request):
             name=name, email=email, title=title, message=message)
         comment.save()
         messages.success(request, 'Comment send!')
-        return render(request, 'pages/contact.html')
+    return render(request, 'pages/contact.html')
 
 
 def teachers(request):
