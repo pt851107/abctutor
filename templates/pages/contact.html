@@ -41,6 +41,7 @@
                    <h4 class="mt-5">Send us a message</h4>
                    <!-- Form Starts -->
                    <div id="contact_form">
+                     {% include 'partials/_alerts.html' %}    
                      <form action="{% url 'contact' %}" method="POST">
                      {% csrf_token %}
                       <div class="form-group">
@@ -64,7 +65,7 @@
                                <textarea name="message" id="message" class="textarea-field form-control" rows="3"  required=""></textarea>
                             </div>
                          </div>
-                         <input type="submit" id="submit_btn" value="Submit" class="btn btn-primary"></button>
+                         <input type="submit" id="submit_btn" value="Submit" class="btn btn-primary">
                       </div>
                       </form>
                       <!-- /form-group-->
