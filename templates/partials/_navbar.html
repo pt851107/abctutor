@@ -7,11 +7,13 @@
            <div class="row">
               <div class="col-md-12">
                  <!-- Start Contact Info -->
-                 <ul class="contact-details float-left">
+                 <div class="hidden-xs hidden-sm">
+                    <ul class="contact-details float-left ">
                     <li><i class="fa fa-map-marker"></i>Street name 123 - New York</li>
                     <li><i class="fa fa-envelope"></i><a href="mailto:email@site.com">dipa@dipa.com</a></li>
                     <li><i class="fa fa-phone"></i>(123) 456-789</li>
                  </ul>
+                 </div>
                  <!-- End Contact Info -->
                  <!-- Start Social Links -->
                  <ul class="social-list float-left list-inline">
@@ -20,9 +22,25 @@
                     <li class="list-inline-item"><a title="Instagram" href="#"><i class="fab fa-instagram"></i></a></li>
                  </ul>
                  <!-- /End Social Links -->
-                 <!-- Login -->
-                 <ul class="contact-details float-right">
-                      <li><i class="fas fa-user"></i><a href="{% url 'login' %}">Log In</a></li>
+                 <!-- Cart & Login -->
+                 <ul class="cart float-right cart-inline">
+                      <li class="cart-inline-item fas fa-shopping-cart" style="color:yellow">
+                        {% with total_items=shopping_cart|length %}
+                        {% if total_items > 0 %}
+                        Your Cart:   
+                        <a href="{% url 'shopping_cart:cart_detail' %}">
+                        {{total_items}} item{{total_items|pluralize}}
+                        </a>   
+                        {% else %}
+                        <span style="color:white">Your Cart is Empty</span>
+                        {% endif %}
+                        {% endwith %}
+                      </li>
+                      {% if user.is_authenticated %}
+                        <li class="cart-inline-item fas fa-user" style="color:yellow"><a href="{% url 'logout' %}">Logout</a></li>
+                      {% else %}
+                        <li class="cart-inline-item fas fa-user" style="color:yellow"><a href="{% url 'login' %}">Login</a></li>
+                      {% endif %}
                  </ul>
                  <!-- /End Login -->
               </div>
