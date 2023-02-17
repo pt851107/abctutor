@@ -53,7 +53,9 @@ def contact(request):
 
 
 def teachers(request):
-    return render(request, 'pages/teachers.html')
+    teachers = Teacher.objects.all()
+    context = {'teachers':teachers}
+    return render(request, 'teachers/teachers.html',context)
 
 
 def daycare(request):
